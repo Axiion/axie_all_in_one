@@ -23,7 +23,7 @@ class _calculatorScreenState extends State<axieTutorial> {
             builder: (controller) => IconButton(
               icon: Icon(
                 Themes.isDark ? FontAwesomeIcons.sun : FontAwesomeIcons.moon,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               onPressed: () => controller.toggleMode(),
             ),

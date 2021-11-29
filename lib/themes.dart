@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'colors.dart';
+
+Color ltBlue = HexColor("005adc");
+Color lterBlue = HexColor("3A8AFD");
+Color dkRed = HexColor("BE1E2D");
+Color dkGrey = HexColor("A6A6A6");
 
 class Themes extends GetxController {
   static bool isDark = false;
@@ -19,53 +25,90 @@ class Themes extends GetxController {
   );
 
   get lightTheme => ThemeData.light().copyWith(
-    brightness: Brightness.light,
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-      primary: Colors.indigoAccent,
-      primaryVariant: Colors.redAccent,
-      secondary: Color(0xffe0f2f1),
-    ),
-    primaryTextTheme: TextTheme(
-        headline1: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 40,
-            fontWeight: FontWeight.normal,
-            color: Colors.black,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.black,
+          primaryVariant: ltBlue,
+          secondary: Colors.black,
+          secondaryVariant: Colors.black,
         ),
-        headline2: TextStyle(
-          fontFamily: 'Roboto',
-          fontSize: 40.0,
-          color: Colors.black,
-        ),
-        headline6: TextStyle(color: Colors.white)),
-  );
+        primaryTextTheme: TextTheme(
+            headline1: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 22,
+              fontWeight: FontWeight.normal,
+              color: Colors.white,
+            ),
+            headline2: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 18,
+              color: Colors.white,
+            ),
+            headline3: TextStyle(
+              fontFamily: 'PoppinsBold',
+              fontSize: 20.0,
+              color: Colors.black,
+            ),
+            headline4: TextStyle(
+              fontFamily: 'PoppinsBold',
+              fontSize: 30.0,
+              color: Colors.black,
+            ),
+            headline5: TextStyle(
+              fontFamily: 'PoppinsBold',
+              fontSize: 70.0,
+              color: Colors.white,
+            ),
+            headline6: TextStyle(
+              color: ltBlue,
+              fontFamily: 'PoppinsBold',
+              fontWeight: FontWeight.w900,
+              fontSize: 17,
+            )),
+      );
 
   get darkTheme => ThemeData.dark().copyWith(
-    brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSwatch().copyWith(
-        primary: Color(0xff464646),
-        primaryVariant: Colors.pinkAccent,
-        secondary: Color(0xffe0f2f1)),
-    primaryTextTheme: TextTheme(
-        headline1: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 22,
-            color: Colors.white,
-            shadows: <Shadow>[
-              Shadow(
-                offset: Offset(1.2, 1.5),
-                blurRadius: 3.0,
-                color: Colors.black,
-              ),
-            ]),
-        headline2: TextStyle(
-          fontFamily: 'Roboto',
-          fontSize: 50.0,
-          fontWeight: FontWeight.w900,
-          color: Colors.white,
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.black,
+          primaryVariant: ltBlue,
+          secondary: Colors.white,
+          secondaryVariant: Colors.white,
         ),
-        headline6: TextStyle(color: Colors.white)),
-  );
+        primaryTextTheme: TextTheme(
+            headline1: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 22,
+              fontWeight: FontWeight.normal,
+              color: Colors.white,
+            ),
+            headline2: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 18,
+              color: Colors.white,
+            ),
+            headline3: TextStyle(
+              fontFamily: 'PoppinsBold',
+              fontSize: 20.0,
+              color: Colors.white,
+            ),
+            headline4: TextStyle(
+              fontFamily: 'PoppinsBold',
+              fontSize: 30.0,
+              color: Colors.white,
+            ),
+            headline5: TextStyle(
+              fontFamily: 'PoppinsBold',
+              fontSize: 70.0,
+              color: Colors.white,
+            ),
+            headline6: TextStyle(
+              color: ltBlue,
+              fontFamily: 'PoppinsBold',
+              fontWeight: FontWeight.w900,
+              fontSize: 17,
+            )),
+      );
 
   void toggleMode() {
     isDark = !isDark;
