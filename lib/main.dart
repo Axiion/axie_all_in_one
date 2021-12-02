@@ -93,15 +93,13 @@ class _axieMainState extends State<axieMain> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryVariant,
+                                    color: ltBlue,
                                     borderRadius: BorderRadius.circular(12),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.7),
                                         spreadRadius: 1,
-                                        blurRadius: 2,
+                                        blurRadius: 0,
                                         offset: Offset(4, 4),
                                       ),
                                     ],
@@ -165,7 +163,7 @@ class _axieMainState extends State<axieMain> {
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.7),
                                         spreadRadius: 1,
-                                        blurRadius: 2,
+                                        blurRadius: 0,
                                         offset: Offset(4, 4),
                                       ),
                                     ],
@@ -239,7 +237,7 @@ class _axieMainState extends State<axieMain> {
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.7),
                                         spreadRadius: 1,
-                                        blurRadius: 2,
+                                        blurRadius: 0,
                                         offset: Offset(4, 4),
                                       ),
                                     ],
@@ -296,15 +294,13 @@ class _axieMainState extends State<axieMain> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryVariant,
+                                    color: ltBlue,
                                     borderRadius: BorderRadius.circular(12),
                                     boxShadow: [
                                       BoxShadow(
                                         color: Colors.grey.withOpacity(0.7),
                                         spreadRadius: 1,
-                                        blurRadius: 2,
+                                        blurRadius: 0,
                                         offset: Offset(4, 4),
                                       ),
                                     ],

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import 'package:http/http.dart' as http;
+
 class slpValue extends StatefulWidget {
   const slpValue({Key? key}) : super(key: key);
 
@@ -11,7 +13,18 @@ class slpValue extends StatefulWidget {
 }
 
 class _calculatorScreenState extends State<slpValue> {
-  @override
+  void initState() {
+    super.initState();
+    getSLPValue();
+  }
+
+  void getSLPValue() async {
+    http.Response response = await http
+        .get(Uri.parse('https://api.coingecko.com/api/v3/simple/price?ids='
+            'smooth-love-potion&vs_currencies=usd'));
+    print(response);
+  }
+
   Widget build(BuildContext context) {
     Get.put(Themes());
     return Scaffold(

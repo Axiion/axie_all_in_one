@@ -28,7 +28,7 @@ class Themes extends GetxController {
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: Colors.black,
-          primaryVariant: ltBlue,
+          primaryVariant: Colors.white,
           secondary: Colors.black,
           secondaryVariant: Colors.black,
         ),
@@ -71,7 +71,7 @@ class Themes extends GetxController {
         brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: Colors.black,
-          primaryVariant: ltBlue,
+          primaryVariant: Colors.black,
           secondary: Colors.white,
           secondaryVariant: Colors.white,
         ),
