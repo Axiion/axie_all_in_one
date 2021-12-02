@@ -17,6 +17,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
   int round = 1;
   int energy = 3;
   int usedEnergy = 0, destroyedEnergy = 0, gainedEnergy = 0;
+
   Widget build(BuildContext context) {
     Get.put(Themes());
     return Scaffold(
@@ -119,8 +120,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                     size: 15,
                                   ),
                                   //iconSize: ,
-                                  onPressed: () =>
-                                      {/*create method to minus properly*/},
+                                  onPressed: () => {
+                                    setState(() {
+                                      subtractEnergy("used");
+                                    })
+                                  },
                                 ),
                               ),
                               Container(
@@ -152,8 +156,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                     size: 15,
                                   ),
                                   //iconSize: ,
-                                  onPressed: () =>
-                                      {/*create method to add properly*/},
+                                  onPressed: () => {
+                                    setState(() {
+                                      addEnergy("used");
+                                    })
+                                  },
                                 ),
                               ),
                             ],
@@ -191,8 +198,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                     size: 15,
                                   ),
                                   //iconSize: ,
-                                  onPressed: () =>
-                                      {/*create method to minus properly*/},
+                                  onPressed: () => {
+                                    setState((){
+                                      subtractEnergy("destroy");
+                                    })
+                                  },
                                 ),
                               ),
                               Container(
@@ -224,8 +234,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                     size: 15,
                                   ),
                                   //iconSize: ,
-                                  onPressed: () =>
-                                      {/*create method to add properly*/},
+                                  onPressed: () => {
+                                    setState((){
+                                      addEnergy("destroy");
+                                    })
+                                  },
                                 ),
                               ),
                             ],
@@ -263,8 +276,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                     size: 15,
                                   ),
                                   //iconSize: ,
-                                  onPressed: () =>
-                                      {/*create method to minus properly*/},
+                                  onPressed: () => {
+                                    setState((){
+                                      subtractEnergy("gain");
+                                    })
+                                  },
                                 ),
                               ),
                               Container(
@@ -296,8 +312,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                     size: 15,
                                   ),
                                   //iconSize: ,
-                                  onPressed: () =>
-                                      {/*create method to add properly*/},
+                                  onPressed: () => {
+                                    setState((){
+                                      addEnergy("gain");
+                                    })
+                                  },
                                 ),
                               ),
                             ],
@@ -332,7 +351,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                             color: Colors.white,
                           ),
                         ),
-                        onPressed: () => {},
+                        onPressed: () => {
+                          setState((){
+                            endTurn();
+                          })
+                        },
                       ),
                     ),
                   ),
@@ -343,7 +366,11 @@ class _calculatorScreenState extends State<calculatorScreen> {
                       child: IconButton(
                         icon: Icon(FontAwesomeIcons.redoAlt),
                         iconSize: 40,
-                        onPressed: () => {},
+                        onPressed: () => {
+                          setState(() {
+                            resetAll();
+                          })
+                        },
                       ),
                     ),
                   ),
@@ -354,5 +381,95 @@ class _calculatorScreenState extends State<calculatorScreen> {
         ),
       ),
     );
+  }
+
+  void resetAll(){
+    energy = 3;
+    round = 1;
+    usedEnergy = destroyedEnergy = gainedEnergy = 0;
+  }
+
+  void endTurn(){
+    energy += 2;
+    if(energy >= 10){
+      energy = 10;
+    }
+    round++;
+    usedEnergy = destroyedEnergy = gainedEnergy = 0;
+  }
+
+  void addEnergy(String key){
+    switch(key){
+      case "used":{
+        if(energy == 0){
+          energy = 0;
+        }else{
+          energy--;
+          usedEnergy++;
+        }
+        break;
+      }
+      case "destroy":{
+        if(energy == 0){
+          energy = 0;
+        }else{
+          energy--;
+          destroyedEnergy++;
+        }
+        break;
+      }
+      case "gain":{
+        if(energy == 0){
+          energy = 0;
+        }else{
+          energy++;
+          gainedEnergy++;
+        }
+        break;
+      }
+    }
+  }
+  void subtractEnergy(String key){
+    switch(key){
+      case "used":{
+        if(energy == 10){
+          energy = 10;
+        }else{
+          if(usedEnergy == 0){
+            usedEnergy = 0;
+          }else{
+            energy++;
+            usedEnergy--;
+          }
+        }
+        break;
+      }
+      case "destroy":{
+        if(energy == 10){
+          energy = 10;
+        }else{
+          if(destroyedEnergy == 0){
+            destroyedEnergy = 0;
+          }else{
+            energy++;
+            destroyedEnergy--;
+          }
+        }
+        break;
+      }
+      case "gain":{
+        if(energy == 10){
+          energy = 10;
+        }else{
+          if(gainedEnergy == 0){
+            gainedEnergy = 0;
+          }else{
+            energy++;
+            gainedEnergy--;
+          }
+        }
+        break;
+      }
+    }
   }
 }

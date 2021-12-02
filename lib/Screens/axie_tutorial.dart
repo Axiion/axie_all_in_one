@@ -355,7 +355,9 @@ class _calculatorScreenState extends State<axieTutorial> {
                                 text: TextSpan(
                                   text: "Skill ",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primaryVariant,
                                       fontFamily: "PoppinsBold"),
                                   children: [
                                     TextSpan(
