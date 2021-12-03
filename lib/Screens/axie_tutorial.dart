@@ -43,7 +43,7 @@ class _calculatorScreenState extends State<axieTutorial> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(5.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -63,12 +63,12 @@ class _calculatorScreenState extends State<axieTutorial> {
                       child: Stack(
                         children: <Widget>[
                           Positioned(
-                            width: 295,
-                            top: 5,
+                            width: MediaQuery.of(context).size.width * 0.75,
+                            top: 7,
                             left: 75,
                             child: Container(
-                              height: 70,
-                              padding: EdgeInsets.fromLTRB(37.0, 5.0, 8.0, 0),
+                              alignment: Alignment.center,
+                              height: MediaQuery.of(context).size.height * 0.10,
                               child: Text(
                                 "These are your fantasy pets that you\n"
                                 "can battle,raise, collect and breed.\n"
@@ -76,7 +76,7 @@ class _calculatorScreenState extends State<axieTutorial> {
                                 style: TextStyle(
                                   fontFamily: "Poppins",
                                   color: Colors.white,
-                                  fontSize: 13,
+                                  fontSize: 14,
                                 ),
                               ),
                               decoration: BoxDecoration(
@@ -106,8 +106,9 @@ class _calculatorScreenState extends State<axieTutorial> {
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Container(
+                  padding: EdgeInsets.only(top: 15),
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
@@ -143,7 +144,7 @@ class _calculatorScreenState extends State<axieTutorial> {
                         TextSpan(text: "."),
                         TextSpan(
                           text:
-                              " They\n determine your axies' abilities, stats and  your playstyle.",
+                              " They\n determine your axies' abilities, stats and your playstyle.",
                           style: TextStyle(
                               color: Theme.of(context)
                                   .colorScheme
@@ -156,9 +157,9 @@ class _calculatorScreenState extends State<axieTutorial> {
                 ),
               ),
               Expanded(
-                flex: 5,
+                flex: 4,
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 5, 0, 10),
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -194,6 +195,7 @@ class _calculatorScreenState extends State<axieTutorial> {
               Expanded(
                 flex: 6,
                 child: Container(
+                  margin: EdgeInsets.only(top: 10),
                   child: Column(
                     children: [
                       Container(
@@ -206,33 +208,40 @@ class _calculatorScreenState extends State<axieTutorial> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              child: Image(
-                                image: AssetImage(
-                                  "images/hp.png",
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                child: Image(
+                                  image: AssetImage(
+                                    "images/hp.png",
+                                  ),
                                 ),
+                                width: MediaQuery.of(context).size.width * 0.07,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.07,
                               ),
-                              width: 35,
-                              height: 35,
                             ),
-                            Container(
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  text: "Health ",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: "PoppinsBold"),
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          "determines the amount of damage an\n"
-                                          "Axie can take before getting knocked out.",
-                                      style: TextStyle(
-                                        fontFamily: "Poppins",
+                            Expanded(
+                              flex: 8,
+                              child: Container(
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text: "Health ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "PoppinsBold"),
+                                    children: [
+                                      TextSpan(
+                                        text:
+                                            "determines the amount of damage an\n"
+                                            "Axie can take before getting knocked out.",
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             )
@@ -249,48 +258,55 @@ class _calculatorScreenState extends State<axieTutorial> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              margin: EdgeInsets.all(1),
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                    text: "Speed ",
-                                    style: TextStyle(
-                                      fontFamily: "PoppinsBold",
-                                      fontSize: 10,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primaryVariant,
-                                    ),
-                                    children: [
-                                      TextSpan(
-                                        text:
-                                            "determines the turn order. If same speed, the turn order in \n"
-                                            "which axies will attack  can be determined by: \n",
-                                        style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 10,
-                                        ),
+                            Expanded(
+                              flex: 8,
+                              child: Container(
+                                margin: EdgeInsets.all(1),
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                      text: "Speed ",
+                                      style: TextStyle(
+                                        fontFamily: "PoppinsBold",
+                                        fontSize: 10,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primaryVariant,
                                       ),
-                                      TextSpan(
-                                        text:
-                                            "High speed > Low HP > High Skill > High Morale > Low Fighter ID",
-                                        style: TextStyle(
-                                          fontFamily: "PoppinsBold",
-                                          fontSize: 10,
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              "determines the turn order. If same speed, the turn order in \n"
+                                              "which axies will attack  can be determined by: \n",
+                                          style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 10,
+                                          ),
                                         ),
-                                      )
-                                    ]),
-                              ),
-                            ),
-                            Container(
-                              child: Image(
-                                image: AssetImage(
-                                  "images/speed.png",
+                                        TextSpan(
+                                          text:
+                                              "High speed > Low HP > High Skill > High Morale > Low Fighter ID",
+                                          style: TextStyle(
+                                            fontFamily: "PoppinsBold",
+                                            fontSize: 10,
+                                          ),
+                                        )
+                                      ]),
                                 ),
                               ),
-                              width: 35,
-                              height: 35,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                child: Image(
+                                  image: AssetImage(
+                                    "images/speed.png",
+                                  ),
+                                ),
+                                width: MediaQuery.of(context).size.width * 0.07,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.07,
+                              ),
                             ),
                           ],
                         ),
@@ -305,33 +321,40 @@ class _calculatorScreenState extends State<axieTutorial> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              child: Image(
-                                image: AssetImage(
-                                  "images/morale.png",
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                child: Image(
+                                  image: AssetImage(
+                                    "images/morale.png",
+                                  ),
                                 ),
+                                width: MediaQuery.of(context).size.width * 0.07,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.07,
                               ),
-                              width: 35,
-                              height: 35,
                             ),
-                            Container(
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  text: "Morale ",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: "PoppinsBold"),
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          "increases the chance of getting a\n"
-                                          "crit. It also makes entering last stand likelier.",
-                                      style: TextStyle(
-                                        fontFamily: "Poppins",
+                            Expanded(
+                              flex: 8,
+                              child: Container(
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text: "Morale ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: "PoppinsBold"),
+                                    children: [
+                                      TextSpan(
+                                        text:
+                                            "increases the chance of getting a\n"
+                                            "crit. It also makes entering last stand likelier.",
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             )
@@ -348,37 +371,47 @@ class _calculatorScreenState extends State<axieTutorial> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              margin: EdgeInsets.all(2),
-                              child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  text: "Skill ",
-                                  style: TextStyle(
+                            Expanded(
+                              flex: 8,
+                              child: Container(
+                                margin: EdgeInsets.all(2),
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text: "Skill ",
+                                    style: TextStyle(
                                       color: Theme.of(context)
                                           .colorScheme
                                           .primaryVariant,
-                                      fontFamily: "PoppinsBold"),
-                                  children: [
-                                    TextSpan(
-                                      text: "adds damage when your Axie plays\n"
-                                          " multiple cards at once or also known as combo.",
-                                      style: TextStyle(
-                                        fontFamily: "Poppins",
-                                      ),
+                                      fontFamily: "PoppinsBold",
+                                      fontSize: 13,
                                     ),
-                                  ],
+                                    children: [
+                                      TextSpan(
+                                        text:
+                                            "adds damage when your Axie plays\n"
+                                            "multiple cards at once or also known as combo.",
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            Container(
-                              child: Image(
-                                image: AssetImage(
-                                  "images/skill.png",
+                            Expanded(
+                              flex: 1,
+                              child: Container(
+                                child: Image(
+                                  image: AssetImage(
+                                    "images/skill.png",
+                                  ),
                                 ),
+                                width: MediaQuery.of(context).size.width * 0.07,
+                                height:
+                                    MediaQuery.of(context).size.width * 0.07,
                               ),
-                              width: 30,
-                              height: 30,
                             ),
                           ],
                         ),

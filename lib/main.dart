@@ -1,3 +1,5 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:axie_all_in_one/splash.dart';
 import 'package:axie_all_in_one/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +20,15 @@ class axieAIO extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Themes().lightTheme,
-      home: axieMain(),
+      home: AnimatedSplashScreen(
+        splash: Image(
+          width: 250,
+          height: 250,
+          image: AssetImage('images/loading.gif'),
+        ),
+        nextScreen: axieMain(),
+        splashTransition: SplashTransition.fadeTransition,
+      ),
     );
   }
 }
@@ -181,11 +191,10 @@ class _axieMainState extends State<axieMain> {
                                             Container(
                                               height: double.infinity,
                                               child: Text(
-                                                "Daily and Total\n"
-                                                "SLP",
+                                                "SLP per MMR",
                                                 style: Theme.of(context)
                                                     .primaryTextTheme
-                                                    .headline2,
+                                                    .headline1,
                                               ),
                                             ),
                                           ],

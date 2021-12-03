@@ -17,6 +17,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
   int round = 1;
   int energy = 3;
   int usedEnergy = 0, destroyedEnergy = 0, gainedEnergy = 0;
+  bool turnEnded = false;
 
   Widget build(BuildContext context) {
     Get.put(Themes());
@@ -199,7 +200,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                   ),
                                   //iconSize: ,
                                   onPressed: () => {
-                                    setState((){
+                                    setState(() {
                                       subtractEnergy("destroy");
                                     })
                                   },
@@ -235,7 +236,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                   ),
                                   //iconSize: ,
                                   onPressed: () => {
-                                    setState((){
+                                    setState(() {
                                       addEnergy("destroy");
                                     })
                                   },
@@ -277,7 +278,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                   ),
                                   //iconSize: ,
                                   onPressed: () => {
-                                    setState((){
+                                    setState(() {
                                       subtractEnergy("gain");
                                     })
                                   },
@@ -313,7 +314,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
                                   ),
                                   //iconSize: ,
                                   onPressed: () => {
-                                    setState((){
+                                    setState(() {
                                       addEnergy("gain");
                                     })
                                   },
@@ -352,7 +353,7 @@ class _calculatorScreenState extends State<calculatorScreen> {
                           ),
                         ),
                         onPressed: () => {
-                          setState((){
+                          setState(() {
                             endTurn();
                           })
                         },
@@ -383,93 +384,101 @@ class _calculatorScreenState extends State<calculatorScreen> {
     );
   }
 
-  void resetAll(){
+  void resetAll() {
     energy = 3;
     round = 1;
     usedEnergy = destroyedEnergy = gainedEnergy = 0;
   }
 
-  void endTurn(){
+  void endTurn() {
     energy += 2;
-    if(energy >= 10){
+    if (energy >= 10) {
       energy = 10;
     }
     round++;
     usedEnergy = destroyedEnergy = gainedEnergy = 0;
   }
 
-  void addEnergy(String key){
-    switch(key){
-      case "used":{
-        if(energy == 0){
-          energy = 0;
-        }else{
-          energy--;
-          usedEnergy++;
+  void addEnergy(String key) {
+    switch (key) {
+      case "used":
+        {
+          if (energy == 0) {
+            energy = 0;
+          } else {
+            energy--;
+            usedEnergy++;
+          }
+          break;
         }
-        break;
-      }
-      case "destroy":{
-        if(energy == 0){
-          energy = 0;
-        }else{
-          energy--;
-          destroyedEnergy++;
+      case "destroy":
+        {
+          if (energy == 0) {
+            energy = 0;
+          } else {
+            energy--;
+            destroyedEnergy++;
+          }
+          break;
         }
-        break;
-      }
-      case "gain":{
-        if(energy == 0){
-          energy = 0;
-        }else{
-          energy++;
-          gainedEnergy++;
+      case "gain":
+        {
+          if (energy == 10) {
+            gainedEnergy = gainedEnergy;
+            energy = 10;
+          } else {
+            energy++;
+            gainedEnergy++;
+          }
+          break;
         }
-        break;
-      }
     }
   }
-  void subtractEnergy(String key){
-    switch(key){
-      case "used":{
-        if(energy == 10){
-          energy = 10;
-        }else{
-          if(usedEnergy == 0){
-            usedEnergy = 0;
-          }else{
-            energy++;
-            usedEnergy--;
+
+  void subtractEnergy(String key) {
+    switch (key) {
+      case "used":
+        {
+          if (energy == 10) {
+            energy = 10;
+          } else {
+            if (usedEnergy == 0) {
+              usedEnergy = 0;
+            } else {
+              energy++;
+              usedEnergy--;
+            }
           }
+          break;
         }
-        break;
-      }
-      case "destroy":{
-        if(energy == 10){
-          energy = 10;
-        }else{
-          if(destroyedEnergy == 0){
-            destroyedEnergy = 0;
-          }else{
-            energy++;
-            destroyedEnergy--;
+      case "destroy":
+        {
+          if (energy == 10) {
+            energy = 10;
+          } else {
+            if (destroyedEnergy == 0) {
+              destroyedEnergy = 0;
+            } else {
+              energy++;
+              destroyedEnergy--;
+            }
           }
+          break;
         }
-        break;
-      }
-      case "gain":{
-        if(energy == 10){
-          energy = 10;
-        }else{
-          if(gainedEnergy == 0){
+      case "gain":
+        {
+          if (gainedEnergy == 0) {
             gainedEnergy = 0;
-          }else{
-            energy++;
+          } else {
+            energy--;
             gainedEnergy--;
           }
+
+          if (energy == 0) {
+            energy = 0;
+          }
+          break;
         }
-        break;
-      }
     }
   }
 }
