@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import 'Screens/axie_tutorial.dart';
 import 'Screens/calculator.dart';
+import 'Screens/loading_screen.dart';
 import 'Screens/slp_info.dart';
 import 'Screens/slp_value.dart';
 
@@ -99,7 +100,7 @@ class _axieMainState extends State<axieMain> {
                               flex: 1,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(calculatorScreen());
+                                  Get.to(() => calculatorScreen());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -162,7 +163,7 @@ class _axieMainState extends State<axieMain> {
                               flex: 1,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(slpInfo());
+                                  Get.to(() => slpInfo());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -235,7 +236,7 @@ class _axieMainState extends State<axieMain> {
                               flex: 1,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(slpValue());
+                                  Get.to(() => LoadingScreen());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -299,7 +300,7 @@ class _axieMainState extends State<axieMain> {
                               flex: 1,
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.to(axieTutorial());
+                                  Get.to(() => axieTutorial());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(

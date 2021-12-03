@@ -10,10 +10,10 @@ class axieTutorial extends StatefulWidget {
   const axieTutorial({Key? key}) : super(key: key);
 
   @override
-  _calculatorScreenState createState() => _calculatorScreenState();
+  _axieTutorialScreenState createState() => _axieTutorialScreenState();
 }
 
-class _calculatorScreenState extends State<axieTutorial> {
+class _axieTutorialScreenState extends State<axieTutorial> {
   @override
   Widget build(BuildContext context) {
     Get.put(Themes());
