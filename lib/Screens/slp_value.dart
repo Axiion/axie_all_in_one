@@ -107,7 +107,11 @@ class _calculatorScreenState extends State<slpValue> {
                       width: 250,
                       child: Text(
                         "USD. $slpUSD",
-                        style: Theme.of(context).primaryTextTheme.headline4,
+                        style: TextStyle(
+                          fontFamily: 'PoppinsBold',
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -123,17 +127,23 @@ class _calculatorScreenState extends State<slpValue> {
                     ),
                   ),
                   Expanded(
-                    flex: 2,
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(0, 20, 0, 10),
+                      child: Text("Powered by:"),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: Colors.black,
                       ),
-                      margin: EdgeInsets.fromLTRB(0, 40, 0, 10),
                       alignment: Alignment.center,
                       width: 200,
                       child: Text(
-                        "as of 11/29/2021",
+                        "CoinGecko",
                         style: TextStyle(
                           fontFamily: 'PoppinsBold',
                           fontSize: 18.0,
@@ -142,10 +152,6 @@ class _calculatorScreenState extends State<slpValue> {
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Text("from API"),
-                  )
                 ],
               ),
             ),

@@ -1,6 +1,5 @@
 import 'package:axie_all_in_one/Screens/slp_value.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'coingecko_slp.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -32,12 +31,25 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child:
-          SpinKitDoubleBounce(
-            color: Colors.black,
-            size: 100.0,
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 250),
+            child: Center(
+              child: Image(
+                width: 100,
+                height: 100,
+                image: AssetImage('images/loading.gif'),
+              ),
+            ),
           ),
+          Center(
+            child: Text(
+              'Fetching SLP value\n Please wait...',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
       ),
     );
   }
